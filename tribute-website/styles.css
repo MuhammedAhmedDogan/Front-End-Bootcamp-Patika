@@ -71,20 +71,22 @@ main {
     position: absolute;
     left: calc(50% - width);
     height: 100%;
-    width: auto;
+    width: 100%;
     
     margin: auto;
 }
 
 #info {
-    background-color: #f0e68c;
+    background-color: #3B0E0B;
+    color: white;
     overflow-y: scroll;
     scrollbar-width: none;
 }
 
 #books {
     height: calc(100vh - 40px);
-    background-color: #87ceeb;
+    background-color: #1F0706;
+    color: white;
     overflow-y: scroll;
     scrollbar-width: none;
 }
@@ -94,9 +96,14 @@ div {
 }
 
 blockquote {
-    font-style: italic;
-    margin-top: 10px;
-    color: #555;
+    width: 800px;
+    font-size: 2em;
+    font-style: bold;
+    color: #CD282C;
+    position: absolute;
+    left: 48.5%;
+    top: 45%;
+    z-index: 1000;
 }
 
 section h2 {
