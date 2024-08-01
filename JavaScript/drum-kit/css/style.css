@@ -1,0 +1,43 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #2D3D50;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.text1 {
+    color: white;
+    font-family: 'Segoe UI', Arial, Tahoma, Verdana, sans-serif;
+}
+
+.img1{
+    max-width: 60%;
+}
+
+.buttons {
+    min-height: 30vh;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn{
+    width: 90px;
+    height: 90px;
+    color: #3498DB;
+    border-color: #3498DB;
+    font-size: xx-large;
+}
+
+.active {
+    box-shadow: 2px 2px 10px #f4f4f4;
+}
