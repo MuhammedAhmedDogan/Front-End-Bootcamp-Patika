@@ -1,0 +1,52 @@
+.page {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #31363E;
+  overflow: hidden;
+}
+
+.background {
+  position: absolute;
+}
+
+.player1Dice {
+  position: absolute;
+  width: 199px;
+  height: auto;
+  z-index: 100;
+  transform: translate(-132px, 33px);
+}
+
+.player2Dice {
+  position: absolute;
+  width: 199px;
+  height: auto;
+  z-index: 100;
+  transform: translate(123px, 33px);
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  z-index: 100;
+  transform: translate(-5px, 202px);
+  transition: all 0.3s;
+}
+
+.button :hover {
+  box-shadow: 0 0 30px rgba(0, 203, 150, 0.4);
+}
+
+.button :active {
+  box-shadow: 0 0 30px rgba(0, 203, 150, 1);
+}
