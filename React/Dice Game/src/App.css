@@ -24,8 +24,6 @@
   border: none;
   z-index: 100;
   transform: translate(-132px, 33px);
-  transition: all 0.3s;
-  border-radius: 20px;
 }
 
 .player2Dice {
@@ -37,8 +35,6 @@
   border: none;
   z-index: 100;
   transform: translate(123px, 33px);
-  transition: all 0.3s;
-  border-radius: 20px;
 }
 
 .button {
@@ -133,4 +129,5 @@
   font-family: "Edu VIC WA NT Beginner", sans-serif;
   font-size: x-large;
   background-color: #00CB96;
+  z-index: 100;
 }

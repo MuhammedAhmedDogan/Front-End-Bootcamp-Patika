@@ -33,19 +33,7 @@ function App() {
       setPlayer1Dice(dice1);
       setPlayer2Dice(dice2);
 
-      const diceImg1 = document.getElementById(1);
-      const diceImg2 = document.getElementById(2);
-
-      if (diceImg1 && diceImg2) {
-        diceImg1.style.boxShadow = '0 0 30px rgba(255, 100, 100, 0.3)';
-        diceImg2.style.boxShadow = '0 0 30px rgba(255, 100, 100, 0.3)';
-      }
-      await wait(80);
-      if (diceImg1 && diceImg2) {
-        diceImg1.style.boxShadow = 'none';
-        diceImg2.style.boxShadow = 'none';
-      }
-      await wait(220);
+      await wait(300);
 
       if (i === 9) {
         if (dice1 === dice2) {
@@ -66,11 +54,19 @@ function App() {
     }
   };
 
+  const handleClickPage = () => {
+    if (isOnClick && inputValue) {
+      setName(inputValue);
+      setInputValue("");
+      setIsOnClick(false);
+    }
+  }
+
   const diceImages = [null, dice1, dice2, dice3, dice4, dice5, dice6];
 
   return (
     <>
-      <div className='page'>
+      <div onClick={handleClickPage} className='page'>
         <img className='background' src={background} alt="background" />
 
         {/* Dice Images */}
@@ -90,7 +86,7 @@ function App() {
         <h1 className='result'>{winner}</h1>
 
         <div className='player1'>
-          {isOnClick ? (<input onChange={(e) => setInputValue(e.target.value)} onKeyDown={handleKeyPress} type="text" placeholder="Enter your name here"/>) : (<h1 onClick={()=>{setIsOnClick(true)}}>{name}</h1>)}
+          {isOnClick ? (<input onChange={(e) => setInputValue(e.target.value)} onKeyDown={handleKeyPress} type="text" placeholder="Enter your name here" />) : (<h1 onClick={() => { setIsOnClick(true) }}>{name}</h1>)}
         </div>
       </div>
     </>
