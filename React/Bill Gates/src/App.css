@@ -3,6 +3,8 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .container {
@@ -10,11 +12,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 90%;
 }
 
 .wallet {
-  width: calc(75% + 140px);
+  width: 100%;
+  min-width: 340px;
   height: 80px;
   background: radial-gradient(ellipse at bottom, #1FC090, #2BC979);
   display: flex;

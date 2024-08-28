@@ -1,14 +1,24 @@
-import data from './../data/data'
+/* eslint-disable react/prop-types */
 import './products.css'
 
-function Products() {
+function Products({ products, setProducts, wallet }) {
 
-    const handleChange = () => {
 
-    }
+
+    const handleChange = (e, id) => {
+        const updatedProducts = products.map(item => {
+            if (item.id === id) {
+                return { ...item, count: Number(e.target.value) };
+            }
+            return item;
+        });
+        setProducts(updatedProducts);
+    };
+
     return (
         <div className='all-products'>
-            {data.map(item => (
+            {products.map(item => (
+
                 <div key={item.id} className='product'>
                     <div className='product-top'>
                         <img src={item.img} alt={item.title} />
@@ -17,9 +27,9 @@ function Products() {
                     </div>
 
                     <div className='product-bottom'>
-                        <button className='sell-btn'>Sell</button>
-                        <input type="number" value={item.count} onChange={handleChange} />
-                        <button className='buy-btn'>Buy</button>
+                        <button className={item.count > 0 ? 'sell-btn' : 'disabled-btn'}>Sell</button>
+                        <input type="number" value={item.count} onChange={(e) => handleChange(e, item.id)} />
+                        <button className={wallet < item.price ? 'disabled-btn' : 'buy-btn'}>Buy</button>
                     </div>
                 </div>
             ))}

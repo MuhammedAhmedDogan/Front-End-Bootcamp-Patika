@@ -2,18 +2,31 @@
     margin: 10px 0;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     gap: 10px;
 }
 
 .product {
     padding: 20px;
-    width: 25%;
-    min-width: 300px;
-    height: 300px;
-    max-height: 300px;
+    width: 32.7%;
+    box-sizing: border-box;
+    min-width: 340px;
+    height: 340px;
+    max-height: 340px;
     background-color: #FFFFFF;
+}
+
+@media (max-width: 1232px) {
+    .product {
+        width: 49.3%;
+    }
+}
+
+@media (max-width: 856px) {
+    .product {
+        width: 100%;
+    }
 }
 
 .product-top {
@@ -66,15 +79,16 @@
     border-radius: 3px;
     font-size: 1.1rem;
     font-weight: 500;
-    color: #FFFFFF;
 }
 
 .sell-btn {
     background-color: #F53B72;
+    color: #FFFFFF;
 }
 
 .buy-btn {
     background-color: #23C387;
+    color: #FFFFFF;
 }
 
 .product-bottom input {
