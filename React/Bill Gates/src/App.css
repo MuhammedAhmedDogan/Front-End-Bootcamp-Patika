@@ -17,12 +17,14 @@
 
 .container .header {
   width: 100%;
+  min-width: 340px;
   padding: 50px;
   color: black;
   font-size: larger;
   background-color: #FFFFFF;
   box-sizing: border-box;
   margin-bottom: 10px;
+  box-sizing: border-box;
 }
 
 .container .header img {

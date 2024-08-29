@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from 'react'
 import './App.css'
 import data from './data/data'
@@ -9,10 +10,29 @@ function App() {
 
   const [products, setProducts] = useState(data);
   const [wallet, setWallet] = useState(100_000_000_000);
+  const [targetWallet, setTargetWallet] = useState(100_000_000_000);
 
   useEffect(() => {
-    setWallet(100_000_000_000 - products?.reduce((acc, item) => acc + (item.count * item.price), 0))
+    setTargetWallet(100_000_000_000 - products?.reduce((acc, item) => acc + (item.count * item.price), 0))
   }, [products]);
+
+  useEffect(() => {
+    if (wallet !== targetWallet) {
+      const interval = setInterval(() => {
+        setWallet(prevWallet => {
+          const difference = prevWallet - targetWallet;
+          const step = Math.ceil(Math.abs(difference) / 30);
+          
+          if (difference > 0) {
+            return prevWallet - step >= targetWallet ? prevWallet - step : targetWallet;
+          } else {
+            return prevWallet + step <= targetWallet ? prevWallet + step : targetWallet;
+          }
+        });
+      }, 2);
+      return () => clearInterval(interval);
+    }
+  }, [targetWallet]);
 
   return (
     <>
