@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import './receipt.css'
 
-function Receipt({ products, wallet }) {
-    const purchasedProducts = wallet === 100_000_000_000 ? [] : products.filter(item => item.count > 0);
+function Receipt({ products, wallet, targetWallet }) {
+    const purchasedProducts = targetWallet === 100_000_000_000 ? [] : products.filter(item => item.count > 0);
 
     function formatNumber(num) {
         if (num >= 1_000_000_000) {

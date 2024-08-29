@@ -42,8 +42,8 @@ function App() {
           <h1>Spend Bill Gates Money</h1>
         </div>
         <div className='wallet'><h1>${wallet.toLocaleString('en-US')}</h1></div>
-        <Products products={products} setProducts={setProducts} wallet={wallet} />
-        <Receipt products={products} wallet={wallet} />
+        <Products products={products} setProducts={setProducts} wallet={targetWallet} />
+        <Receipt products={products} wallet={wallet} targetWallet={targetWallet} />
       </div>
 
     </>
