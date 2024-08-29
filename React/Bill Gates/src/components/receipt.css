@@ -1,0 +1,70 @@
+.receipt {
+    width: 100%;
+    padding: 2rem;
+    box-sizing: border-box;
+    background-color: #FFFFFF;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.disabled-receipt {
+    display: none;
+}
+
+.receipt .container {
+    width: 340px;
+}
+
+.receipt .container .title {
+    padding-bottom: 25px;
+}
+
+.receipt .container .product-list {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.receipt h1,.receipt h2 ,.receipt h3 {
+    margin: 0;
+    
+}
+
+.receipt .product-name {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    width: 200px;
+    font-weight: 600;
+}
+.receipt .product-count {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    width: 70px;
+    font-weight: 600;
+}
+.receipt .product-price {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    width: 70px;
+    color: #23C387;
+}
+
+.receipt .receipt-bottom {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid black;
+}
+
+.receipt .receipt-bottom .totalSpent {
+    color: #23C387;
+}
