@@ -10,17 +10,26 @@ function Receipt({ products, wallet }) {
             if (formattedNum.endsWith('.0')) {
                 formattedNum = formattedNum.slice(0, -2);
             }
+            if (Number(formattedNum) >= 1_000) {
+                return formatNumber(Number(formattedNum) * 1_000_000_000);
+            }
             return formattedNum + 'b';
         } else if (num >= 1_000_000) {
             let formattedNum = (num / 1_000_000).toFixed(1);
             if (formattedNum.endsWith('.0')) {
                 formattedNum = formattedNum.slice(0, -2);
             }
+            if (Number(formattedNum) >= 1_000) {
+                return formatNumber(Number(formattedNum) * 1_000_000);
+            }
             return formattedNum + 'm';
         } else if (num >= 1_000) {
             let formattedNum = (num / 1_000).toFixed(1);
             if (formattedNum.endsWith('.0')) {
                 formattedNum = formattedNum.slice(0, -2);
+            }
+            if (Number(formattedNum) >= 1_000) {
+                return formatNumber(Number(formattedNum) * 1_000);
             }
             return formattedNum + 'k';
         } else {
@@ -29,13 +38,13 @@ function Receipt({ products, wallet }) {
     }
 
     return (
-        <div className={ purchasedProducts.length ? 'receipt' : 'disabled-receipt'}>
+        <div className={purchasedProducts.length ? 'receipt' : 'disabled-receipt'}>
             <div className='container'>
                 <h1 className='title'>Your Receipt</h1>
                 {purchasedProducts.map(item => (
                     <div className='product-list' key={item.id}>
                         <h3 className='product-name'>{item.title}</h3>
-                        <h3 className='product-count'>x{item.count}</h3>
+                        <h3 className='product-count'>x{formatNumber(item.count)}</h3>
                         <h3 className='product-price'>${formatNumber(item.count * item.price)}</h3>
                     </div>
                 ))}

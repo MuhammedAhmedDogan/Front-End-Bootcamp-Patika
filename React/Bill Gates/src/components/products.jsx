@@ -7,7 +7,12 @@ function Products({ products, setProducts, wallet }) {
         const updatedProducts = products.map(item => {
             if (item.id === id) {
                 let isWalletNegative = (wallet + (item.price * item.count) - (item.price * Number(e.target.value))) < 0;
-                return isWalletNegative ? item : { ...item, count: Number(e.target.value) };
+                let newCount = Number(e.target.value);
+                if (isWalletNegative) {
+                    newCount = Math.floor((wallet + item.price * item.count)/item.price);
+                }
+                return { ...item, count: Number(newCount) };
+
             }
             return item;
         });

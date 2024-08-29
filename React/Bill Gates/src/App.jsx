@@ -3,6 +3,7 @@ import './App.css'
 import data from './data/data'
 import Products from './components/products';
 import Receipt from './components/receipt';
+import billGatesImage from './assets/images/billgates.jpg';
 
 function App() {
 
@@ -16,6 +17,10 @@ function App() {
   return (
     <>
       <div className='container'>
+        <div className='header'>
+          <img src={billGatesImage} alt="billgates" />
+          <h1>Spend Bill Gates Money</h1>
+        </div>
         <div className='wallet'><h1>${wallet.toLocaleString('en-US')}</h1></div>
         <Products products={products} setProducts={setProducts} wallet={wallet} />
         <Receipt products={products} wallet={wallet} />
