@@ -13,7 +13,20 @@
     height: 60px;
     cursor: pointer;
     transition: all 0.3s;
-    border-radius: 10px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.note-cards-container .note-card h4 {
+    margin: 0 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 1.2rem;
+    font-weight: 600;
 }
 
 .note-cards-container .red-card {
