@@ -11,7 +11,10 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgba(0, 0, 0, 1);
     border: none;
     cursor: pointer;
     font-size: 1.2rem;
