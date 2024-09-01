@@ -1,0 +1,46 @@
+.buttons {
+    position: absolute;
+    left: 20px;
+    bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+}
+
+.buttons button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: black;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+@media (max-width: 576px) {
+    .buttons button {
+        width: 30px;
+        height: 30px;
+        font-size: 1rem;
+    }
+  }
+
+.buttons .red-btn {
+    background-color: #F06292;
+}
+
+.buttons .purple-btn {
+    background-color: #BA68C8;
+}
+
+.buttons .yellow-btn {
+    background-color: #FFD54F;
+}
+
+.buttons .blue-btn {
+    background-color: #4FC3F7;
+}
+
+.buttons .green-btn {
+    background-color: #AED581;
+}

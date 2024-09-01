@@ -1,0 +1,62 @@
+.note-cards-container {
+    margin: 20px 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.note-cards-container .note-card {
+    width: 32%;
+    min-width: 150px;
+    height: 60px;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 10px;
+}
+
+.note-cards-container .red-card {
+    background-color: #F06292;
+}
+
+.note-cards-container .red-card:hover {
+    box-shadow: 0 0 10px #F06292;
+}
+
+.note-cards-container .purple-card {
+    background-color: #BA68C8;
+}
+
+.note-cards-container .purple-card:hover {
+    box-shadow: 0 0 10px #BA68C8;
+}
+
+.note-cards-container .yellow-card {
+    background-color: #FFD54F;
+}
+
+.note-cards-container .yellow-card:hover {
+    box-shadow: 0 0 10px #FFD54F;
+}
+
+.note-cards-container .blue-card {
+    background-color: #4FC3F7;
+}
+
+.note-cards-container .blue-card:hover {
+    box-shadow: 0 0 10px #4FC3F7;
+}
+
+.note-cards-container .green-card {
+    background-color: #AED581;
+}
+
+.note-cards-container .green-card:hover {
+    box-shadow: 0 0 10px #AED581;
+}
+
+.note-cards-container .note-card:active {
+    transform: scale(0.98);  
+    box-shadow: none;
+}
