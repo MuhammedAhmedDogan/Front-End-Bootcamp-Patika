@@ -1,0 +1,35 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.header h1 {
+  color: #EAD7D7;
+  font-size: 6rem;
+  font-weight: 500;
+  margin: 0 auto 20px auto;
+}
+
+.new-todo-container {
+  padding: 5px;
+  background: #FEFEFE;
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.3);
+}
+
+.todo-list-container {
+  padding: 0 5px;
+  background-color: #FFFFFF;
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.3);
+}
+
+.todo-list-container input {
+  background-color: #FFFFFF;
+  box-shadow: none;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.todo-list-container input:focus {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
