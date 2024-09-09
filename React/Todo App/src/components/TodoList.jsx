@@ -1,54 +1,53 @@
-import { useState, useRef, useEffect } from "react"
+import { useRef } from "react"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 const TodoList = ({ items, setItems }) => {
-    const [inputValues, setInputValues] = useState({});
     const inputRefs = useRef([]);
 
     const handleKeyDown = (e, id, index) => {
         if (e.key === 'Enter') {
-            setItems(prevItems =>
-                prevItems.map(item => item.id === id ? { ...item, content: inputValues[id] } : item)
-            );
-
-            // Bir sonraki inputa odaklan
             if (inputRefs.current[index + 1]) {
                 inputRefs.current[index + 1].focus();
+            } else {
+                inputRefs.current[0].focus();
+                if (!inputRefs.current[1]) {
+                    inputRefs.current[0].blur();
+                }
             }
         }
-        if (e.key === 'Backspace' && inputValues[id] === '') {
-            setInputValues(prevState => {
-                const { [id]: _, ...rest } = prevState;
-                return rest;
-            });
-
+        if (e.key === 'Backspace' && e.target.value === '') {
             setItems(prevItems => prevItems.filter(item => item.id !== id));
-
             setTimeout(() => {
-                // Bir önceki inputa odaklan
                 if (inputRefs.current[index - 1]) {
                     inputRefs.current[index - 1].focus();
+                } else {
+                    inputRefs.current[0].focus();
                 }
             }, 0);
         }
     }
 
     const handleChange = (e, id) => {
-        setInputValues(prevState => ({
-            ...prevState,
-            [id]: e.target.value
-        }));
+        setItems(prevItems =>
+            prevItems.map(item =>
+                item.id === id ? { ...item, content: e.target.value } : item
+            )
+        );
     }
 
-    const handleBlur = (id) => {
+    const handleCompleted = (id) => {
         setItems(prevItems =>
-            prevItems.map(item => item.id === id ? { ...item, content: inputValues[id] } : item)
+            prevItems.map(item =>
+                item.id === id ?
+                    (item.isCompleted ? { ...item, isCompleted: false } : { ...item, isCompleted: true })
+                    : item
+            )
         );
-        if (inputValues[id] === '') {
-            setInputValues(prevState => ({
-                ...prevState,
-                [id]: ''
-            }));
-        }
+    }
+
+    const handleDelete = (id) => {
+        setItems(prevItems => prevItems.filter(item => item.id !== id));
     }
 
     return (
@@ -56,20 +55,21 @@ const TodoList = ({ items, setItems }) => {
             {items.map((item, index) => {
                 return (
                     <div key={item.id} className="todo-list-card">
+                        <div className="checkbox" onClick={() => handleCompleted(item.id)}>{item.isCompleted ? '✔' : ''}</div>
                         <input
                             ref={el => inputRefs.current[index] = el}
                             id={item.id}
                             type="text"
                             placeholder="(Text)"
-                            value={inputValues[item.id] !== undefined ? inputValues[item.id] : item.content}
+                            value={item.content}
                             onChange={(e) => handleChange(e, item.id)}
-                            onBlur={() => handleBlur(item.id)}
-                            onKeyDown={(e) => handleKeyDown(e, item.id, index)} />
+                            onKeyDown={(e) => handleKeyDown(e, item.id, index)}
+                            className={item.isCompleted ? 'completed' : ''} />
+                        <div className="delete-icon" onClick={() => handleDelete(item.id)}><FontAwesomeIcon icon={faXmark} /></div>
                     </div>
 
                 )
             })}
-
         </div>
     )
 }
