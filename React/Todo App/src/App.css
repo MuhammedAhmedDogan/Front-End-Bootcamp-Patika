@@ -72,12 +72,13 @@
   background-color: #FFFFFF;
   box-shadow: none;
   border: 1px solid transparent;
-  transition: all 0.7s;
+  transition: all 0.3s;
 }
 
 .todo-list-container input.completed {
   text-decoration: line-through;
   color: rgba(0, 0, 0, 0.3);
+  transition: all 0.7s;
 }
 
 .todo-list-container input:focus {
@@ -159,8 +160,13 @@
   color: rgba(0, 0, 0, 0.6);
   font-size: 14px;
   cursor: pointer;
+  display: none;
 }
 
 .footer span:hover {
   text-decoration: underline;
+}
+
+.footer .clear-completed-shown {
+  display: block;
 }
