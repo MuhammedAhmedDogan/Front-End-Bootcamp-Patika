@@ -1,16 +1,19 @@
 import { useState } from 'react'
-import './App.css'
 import NewTodo from './components/NewTodo'
 import TodoList from './components/TodoList'
+import Footer from './components/Footer'
+import './App.css'
 
 function App() {
-  const [items, setItems] = useState([])
+  const [items, setItems] = useState([]);
+  const [displayStatus, setDisplayStatus] = useState({ all: true, active: false, completed: false });
 
   return (
     <>
       <div className='header'><h1>todos</h1></div>
       <NewTodo items={items} setItems={setItems} />
-      <TodoList items={items} setItems={setItems} />
+      {items.length > 0 && <TodoList items={items} setItems={setItems} displayStatus={displayStatus} />}
+      {items.length > 0 && <Footer items={items} setItems={setItems} displayStatus={displayStatus} setDisplayStatus={setDisplayStatus} />}
     </>
   )
 }

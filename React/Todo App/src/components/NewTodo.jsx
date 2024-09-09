@@ -28,7 +28,7 @@ const NewTodo = ({ items, setItems }) => {
         <div className="new-todo-container">
             <div className="angleDownIcon"
                 onClick={handleAngleIcon}
-                style={{ color: items.some(item => item.isCompleted === false) ? 'rgba(0, 0, 0, 0.2)' : 'rgba(0, 0, 0, 0.6)' }}>
+                style={{ color: items.length > 0 ? (items.some(item => item.isCompleted === false) ? 'rgba(0, 0, 0, 0.2)' : 'rgba(0, 0, 0, 0.6)') : 'rgba(0, 0, 0, 0.2)' }}>
                 <FontAwesomeIcon icon={faAngleDown} /></div>
             <input
                 type="text"

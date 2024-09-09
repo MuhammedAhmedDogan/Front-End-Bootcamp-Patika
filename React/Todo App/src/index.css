@@ -4,7 +4,7 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  color: rgba(0, 0, 0, 0.87);
   background-color: #F5F5F5;
 
   font-synthesis: none;
@@ -16,7 +16,6 @@
 body {
   margin: 0;
   display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -27,6 +26,7 @@ input {
   padding: 16px 16px 16px 60px;
   border: none;
   background: #FEFEFE;
+  width: 100%;
 }
 
 input:focus {

@@ -1,9 +1,22 @@
-import { useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
-const TodoList = ({ items, setItems }) => {
+const TodoList = ({ items, setItems, displayStatus }) => {
     const inputRefs = useRef([]);
+    const [itemsShown, setItemsShown] = useState([]);
+
+    useEffect(() => {
+        if (displayStatus.all) {
+            setItemsShown(items);
+        }
+        if (displayStatus.active) {
+            setItemsShown(items.filter(item => item.isCompleted === false));
+        }
+        if (displayStatus.completed) {
+            setItemsShown(items.filter(item => item.isCompleted === true));
+        }
+    }, [items, displayStatus]);
 
     const handleKeyDown = (e, id, index) => {
         if (e.key === 'Enter') {
@@ -52,7 +65,7 @@ const TodoList = ({ items, setItems }) => {
 
     return (
         <div className="todo-list-container">
-            {items.map((item, index) => {
+            {itemsShown.map((item, index) => {
                 return (
                     <div key={item.id} className="todo-list-card">
                         <div className="checkbox" onClick={() => handleCompleted(item.id)}>{item.isCompleted ? '✔' : ''}</div>
