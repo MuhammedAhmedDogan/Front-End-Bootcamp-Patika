@@ -1,0 +1,43 @@
+#root {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.starships-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.starships-container .starship-card {
+  width: 20%;
+  min-width: 320px;
+  height: 400px;
+  background-color: white;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.starships-container .starship-card img {
+  width: 100%;
+  border-radius: 45px;
+}
+
+.starships-container .starship-card h3 {
+  margin: 20px 0;
+  padding: 0 20px;
+}
+
+.starships-container .starship-card p {
+  margin: 0 0 5px 0;
+  padding: 0 20px;
+  text-align: left;
+}
+
+.starships-container .starship-card p span {
+  font-weight: bold;
+}
