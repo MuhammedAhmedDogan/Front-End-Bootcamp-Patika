@@ -1,18 +1,14 @@
 import { useState, useEffect } from 'react';
-import fetchData from './services/starshipsDataService';
-import Starships from './components/Starships';
-import Search from './components/Search';
-import StarshipDetails from './components/StarshipDetails';
-import starWarsLogo from './assets/star_wars_logo.png';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import fetchData from './services/starshipsDataService';
+import Home from './components/Home';
+import StarshipDetails from './components/StarshipDetails';
+import NotFoundRedirect from './components/NotFoundRedirect';
 import './App.css';
 
 function App() {
   const [starships, setStarships] = useState([]);
-  const [counter, setCounter] = useState(1);
-  const [starshipsShown, setStarshipsShown] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [isFiltered, setIsFiltered] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const getData = async () => {
@@ -29,44 +25,13 @@ function App() {
     getData();
   }, []);
 
-  useEffect(() => {
-    if (!isFiltered) {
-      switch (counter) {
-        case 1:
-          setStarshipsShown(starships.slice(0, 10));
-          break;
-        case 2:
-          setStarshipsShown(starships.slice(0, 20));
-          break;
-        case 3:
-          setStarshipsShown(starships.slice(0, 30));
-          break;
-        case 4:
-          setStarshipsShown(starships);
-          break;
-        default:
-          break;
-      }
-    }
-  }, [starships, counter, isFiltered]);
-
-  const handleCounter = () => {
-    if (counter < 4) {
-      setCounter(prev => (prev + 1));
-    }
-  }
-
   return (
     <Router>
-
       <Routes>
-        <Route path="/" element={<div className='home-page'>
-          <img className='logo' src={starWarsLogo} alt="logo" />
-          <Search starships={starships} setStarshipsShown={setStarshipsShown} setIsFiltered={setIsFiltered} />
-          {isLoading ? <h1>Starships Loading...</h1> : <Starships starshipsShown={starshipsShown} />}
-          {!isLoading && counter < 4 && !isFiltered && <p onClick={handleCounter} className='show-more'>Show more</p>}
-        </div>} />
-        <Route path="/starship/:id" element={<StarshipDetails />} />
+        <Route path="/" element={<Home starships={starships} isLoading={isLoading} />} />
+        <Route path="/starship/:id" element={<StarshipDetails starships={starships} isLoading={isLoading} />} />
+        <Route path="/:id" element={<StarshipDetails starships={starships} isLoading={isLoading} />} />
+        <Route path="*" element={<NotFoundRedirect />} />
       </Routes>
     </Router>
   )

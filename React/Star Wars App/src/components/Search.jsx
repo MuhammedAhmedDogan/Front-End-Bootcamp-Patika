@@ -8,10 +8,11 @@ const Search = ({ starships, setStarshipsShown, setIsFiltered }) => {
         setInputValue(e.target.value)
     }
 
-    const handleOnclick = () => {
+    const handleClickFilter = () => {
         if (inputValue.trim() === '') {
             setIsFiltered(false);
             setHasResult(true);
+            setInputValue('');
         } else {
             const filteredData =
                 starships.filter(item =>
@@ -19,9 +20,10 @@ const Search = ({ starships, setStarshipsShown, setIsFiltered }) => {
                     item.model.toLowerCase().includes(inputValue.trim().toLowerCase()));
 
             filteredData.length ? setHasResult(true) : setHasResult(false);
-            setStarshipsShown(filteredData);
 
+            setStarshipsShown(filteredData);
             setIsFiltered(true);
+            setInputValue(prev => prev.trim());
         }
     }
 
@@ -30,7 +32,7 @@ const Search = ({ starships, setStarshipsShown, setIsFiltered }) => {
             <div className='search'>
                 <p>Name / Model</p>
                 <input name='search' type="text" placeholder='Name / Model' value={inputValue} onChange={(e) => handleOnchange(e)} />
-                <button onClick={handleOnclick}>Filter</button>
+                <button onClick={handleClickFilter}>Filter</button>
             </div>
             {!hasResult && <h1>No relevant results.</h1>}
         </>
