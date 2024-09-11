@@ -17,6 +17,9 @@ body {
   margin: 0;
   display: flex;
   place-items: center;
+  width: 100%;
   min-width: 320px;
   min-height: 100vh;
+  color: rgba(255, 255, 255, 0.87);
+  background: linear-gradient(to bottom right, #342931, #251F2B);
 }
