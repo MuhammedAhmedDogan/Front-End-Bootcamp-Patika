@@ -1,8 +1,18 @@
 #root {
   max-width: 1920px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem 2rem 2rem 2rem;
   text-align: center;
+}
+
+.home-page{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.home-page .logo {
+  width: 300px;
 }
 
 .starships-container {
@@ -14,21 +24,22 @@
 }
 
 .starships-container .starship-card {
-  width: 20%;
+  width: 18%;
   min-width: 320px;
-  height: 400px;
-  background-color: white;
+  height: 380px;
+  background-color: #111423;
   border-radius: 50px;
   cursor: pointer;
 }
 
 .starships-container .starship-card img {
   width: 100%;
+  /* height: 200px; */
   border-radius: 45px;
 }
 
 .starships-container .starship-card h3 {
-  margin: 20px 0;
+  margin: 10px 0 20px 0;
   padding: 0 20px;
 }
 
@@ -41,3 +52,62 @@
 .starships-container .starship-card p span {
   font-weight: bold;
 }
+
+.home-page .show-more {
+  color: rgba(255, 255, 255, 0.7);
+  width: fit-content;
+  padding: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.home-page .show-more:hover {
+  color: rgba(255, 255, 255, 1);
+}
+
+.search {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  p {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 500;
+  };
+
+  input {
+    width: 300px;
+    height: 40px;
+    border-radius: 100px;
+    padding: 5px 10px;
+    font-size: 1.2rem;
+    background-color: #351111;
+    color: rgba(255, 255, 255, 0.87);
+    border: 2px solid rgba(255, 255, 255, 0.87);
+  };
+
+  input:focus{
+    outline: none;
+    box-shadow: none;
+    border: 2px solid rgba(255, 255, 255, 0.87);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none; 
+  };
+
+  button {
+    width: 100px;
+    height: 45px;
+    font-size: 1.2rem;
+    background-color: #134E70;
+    border-radius: 100px;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.87);
+  }
+}
+

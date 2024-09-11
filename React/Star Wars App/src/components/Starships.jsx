@@ -1,9 +1,9 @@
 import starshipImage from './../assets/starship-image.jpg';
 
-const Starships = ({ starships }) => {
+const Starships = ({ starshipsShown }) => {
     return (
         <div className="starships-container">
-            {starships.map((starship, index) => (
+            {starshipsShown.map((starship, index) => (
                 <div key={index} className="starship-card">
                     <img src={starshipImage} alt="starship" />
                     <h3>{starship.name}</h3>
