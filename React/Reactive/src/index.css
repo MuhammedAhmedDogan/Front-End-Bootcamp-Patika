@@ -1,0 +1,57 @@
+:root {
+  --main-color: #355592;
+  --background-color-1: #FFFFFF;
+  --background-color-2: #F6F6F6;
+  --background-color-3: #F1F8FF;
+  --select-color: #F39C12;
+  --text-color-1: #4E4E4E;
+  --text-color-2: #212529;
+  --header-text-color: #FFFFFF;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  scroll-padding-top: 80px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+section {
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.row {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  color: var(--text-color-1);
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+h2 {
+  color: var(--main-color);
+  font-family: "Poppins", sans-serif;
+  font-weight: 750;
+}
+
+#underline {
+  width: 5.2rem;
+  height: 0.5rem;
+  border-radius: 5rem;
+  background-color: var(--select-color);
+}
